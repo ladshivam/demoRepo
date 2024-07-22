@@ -95,6 +95,8 @@ jobs:
       #Status check by codeQL
     - name: Check for critical or high severity issues
       run: |
+        - name: List results directory
+            run: ls -R results/
         results=$(cat results/java.sarif)
         if echo "$results" | jq -e '.runs[].results[] | select(.properties.problem.severity == "error" or .properties.problem.severity == "warning")' > /dev/null; then
           echo "Critical or high severity issues found"
