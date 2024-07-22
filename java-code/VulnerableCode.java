@@ -9,7 +9,7 @@ public class VulnerableCode {
     public static void main(String[] args) {
         try {
             // SQL Injection vulnerability
-            String userId = args[0];
+            String userId = args[0]; //abc
             Connection conn = DriverManager.getConnection("jdbc:mysql://localhost/test", "user", "password");
             Statement stmt = conn.createStatement();
             stmt.execute("SELECT * FROM users WHERE id = " + userId);
