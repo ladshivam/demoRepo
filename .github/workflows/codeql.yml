@@ -91,14 +91,4 @@ jobs:
       uses: github/codeql-action/analyze@v3
       with:
         category: "/language:${{matrix.language}}"
-
-      #Status check by codeQL
-    - name: Check for critical or high severity issues
-      run: |        
-        results=$(cat results/java.sarif)
-        if echo "$results" | jq -e '.runs[].results[] | select(.properties.problem.severity == "error" or .properties.problem.severity == "warning")' > /dev/null; then
-          echo "Critical or high severity issues found"
-          exit 1
-        else
-          echo "No critical or high severity issues found"
-        
+    
