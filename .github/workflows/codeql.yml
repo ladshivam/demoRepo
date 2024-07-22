@@ -101,4 +101,4 @@ jobs:
           exit 1
         else
           echo "No critical or high severity issues found"
-        fi
+        
